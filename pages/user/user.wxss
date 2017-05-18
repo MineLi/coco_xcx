@@ -1,1 +1,28 @@
 /* pages/user/user.wxss */
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: calc(100% - 346rpx);
+}
+
+.user {
+  box-sizing: border-box;
+  height: 230rpx;
+  text-align: center;
+  padding-top: 30rpx;
+  background: #fff;
+  margin-bottom: 16rpx;
+}
+
+.portrait {
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 100%;
+}
+
+.nickname {
+  font-size: 10pt;
+}

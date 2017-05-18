@@ -1,2 +1,17 @@
 <!--pages/user/user.wxml-->
-<text>pages/user/user.wxml</text>
+<view class="container">
+  <view class="header">
+    <view class="user">
+      <block wx:if="{{userInfo.portrait}}">
+        <image class="portrait" src="{{ossUrl + userInfo.portrait + M_100}}"></image>
+      </block>
+      <block wx:else>
+        <image class="portrait" src="/resources/images/defaultUser.png"></image>
+      </block>
+      <view class="nickname">{{userInfo.nickname?userInfo.nickname:'某某某'}}</view>
+    </view>
+  </view>
+  <view class="">
+    
+  </view>
+</view>
