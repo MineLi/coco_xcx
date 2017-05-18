@@ -1,0 +1,204 @@
+/**
+ * 轮播图
+ */
+
+.clear {
+  clear: both;
+}
+
+.lf {
+  float: left;
+}
+
+.rt {
+  float: right;
+}
+
+.swiper-image {
+  height: 100vw;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-number {
+  position: absolute;
+  right: 6%;
+  bottom: 4%;
+  font-size: 14pt;
+  color: #353535;
+}
+
+.pageMask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 10;
+  overflow: scroll;
+  background: #000;
+}
+
+.upMaskImg {
+  position: relative;
+  width: 750rpx;
+  height: 750rpx;
+  margin-top: 250rpx;
+}
+
+/*视频弹窗*/
+
+.dialog {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.70);
+}
+
+.dialog-close {
+  width: 100%;
+  height: 100%;
+}
+
+.video {
+  width: 100%;
+  height: 100vw;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+}
+
+.follow {
+  position: absolute;
+  top: 16rpx;
+  right: 16rpx;
+  box-sizing: border-box;
+  /*background: rgba(215, 215, 215, 0.30);*/
+  border-radius: 2px;
+  width: 120rpx;
+  height: 50rpx;
+  line-height: 46rpx;
+  text-align: center;
+}
+
+.follow image {
+  width: 34rpx;
+  height: 34rpx;
+  vertical-align: middle;
+}
+
+.follow text {
+  color: #353535;
+  font-size: 10pt;
+  vertical-align: middle;
+  margin-left: 8rpx;
+}
+
+.poster1 {
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.poster2 {
+  z-index: 2;
+  position: absolute;
+  width: 20%;
+  height: 20%;
+  margin: 40% 40%;
+}
+
+/**
+ * 块样式
+ */
+
+.block {
+  margin-bottom: 16rpx;
+  padding: 16rpx 30rpx;
+  background-color: #fff;
+}
+
+.block:last-child {
+  margin-bottom: 0;
+}
+
+/**
+ * 文本布局
+ */
+
+.text-title {
+  text-align: center;
+  font-size: 14pt;
+  color: #353535;
+}
+
+.text-value {
+  padding-top: 4rpx;
+  font-size: 12pt;
+}
+
+/**
+ * 选项卡
+ */
+
+.swiper-tab {
+  font-size: 13pt;
+  margin-bottom: 16rpx;
+  background-color: white;
+}
+
+.swiper-tab-list {
+  padding: 16rpx 0;
+  margin: 0 12%;
+  text-align: center;
+}
+
+
+
+/*商品名*/
+
+.commodity-name {
+  font-size: 16pt;
+  padding-bottom: 4rpx;
+}
+
+.commodity-price {
+  font-size: 40rpx;
+  color: rgb(225, 102, 51);
+  padding-right: 10rpx;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #bbb;
+  font-size: 30rpx;
+}
+
+.price_count {
+  font-size: 30rpx;
+  padding: 20rpx 0;
+}
+
+
+
+.back {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  width: 80rpx;
+  height: 80rpx;
+}

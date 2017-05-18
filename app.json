@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/commodity/commodity",
+    "pages/commodityDetail/commodityDetail",
+    "pages/user/user"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "backgroundColor": "#f7f7fa",
+    "color": "#7f8389",
+    "selectedColor": "#09bb07",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "resources/images/toolBar_brandList.png",
+        "selectedIconPath": "resources/images/toolBar_brandListLight.png"
+      },
+      {
+        "pagePath": "pages/commodity/commodity",
+        "text": "商品",
+        "iconPath": "resources/images/toolBar_brandList.png",
+        "selectedIconPath": "resources/images/toolBar_brandListLight.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "resources/images/toolBar_mine.png",
+        "selectedIconPath": "resources/images/toolBar_minelight.png"
+      }
+    ]
+  }
+}

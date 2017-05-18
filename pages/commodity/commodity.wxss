@@ -1,0 +1,78 @@
+/* pages/commodity/commodity.wxss */
+
+.country-title {
+  padding-left: 6rpx;
+  background-color: #fff;
+  height: 43px;
+  line-height: 43px;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+
+.country-title text {
+  font-size: 28rpx;
+  color: #373737;
+  padding: 18rpx 19rpx;
+}
+
+.hasSel {
+  border-bottom: 4rpx solid #09bb07;
+}
+
+.commodities {
+  padding-top: 43px;
+}
+
+.commodity-content {
+  float: left;
+  padding: 10rpx 12rpx 0;
+  height: 220px;
+  background-color: #fff;
+}
+
+.commodity-img {
+  float: left;
+  height: 140rpx;
+  width: 140rpx;
+  margin-right: 20rpx;
+}
+
+.commodity-big-img {
+  width: 350rpx;
+  height: 350rpx;
+  background-color: #e3e3e3;
+}
+
+.commodity-big-img  image {
+  width: 100%;
+  height: 100%;
+}
+
+.commodity-fullname {
+  font-size: 24rpx;
+  color: #000;
+  letter-spacing: 0px;
+  text-align: left;
+  position: relative;
+  top: 8rpx;
+  width: 350rpx;
+  height: 32rpx;
+  overflow: hidden;
+}
+
+.commodity-price {
+  font-size: 30rpx;
+  color: rgb(225, 102, 51);
+  padding-right: 10rpx;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #bbb;
+}
+
+.price_count {
+  font-size: 24rpx;
+  padding: 20rpx 0;
+}

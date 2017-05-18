@@ -1,0 +1,55 @@
+<import src="../../utils/wxParse/wxParse.wxml" />
+
+<!--轮播图start-->
+<view class="container">
+  <view style="position: relative">
+    <swiper class="swiper-image" circular="{{circular}}" bindchange="imageSlide">
+      <block wx:if="{{commodity.video}}">
+        <swiper-item>
+          <image class="poster1" src="{{ossUrl + commodity.showImg[0] + M_W_500}}" bindtap="playVideo"></image>
+          <image class="poster2" src="/resources/play.png" bindtap="playVideo"></image>
+        </swiper-item>
+      </block>
+      <block hidden="{{!commodity.showImg.length}}" wx:for="{{commodity.showImg}}" wx:key="img">
+        <swiper-item>
+          <image src="{{ossUrl + item + M_W_500}}" class="slide-image" mode="aspectFill" bindtap="enlarge" data-imgUrl="{{ossUrl + item + M_W_500}}" />
+        </swiper-item>
+      </block>
+      <block hidden="{{commodity.showImg}}">
+        <image class="slide-image" src="/resources/images/defaultComm.png"></image>
+      </block>
+    </swiper>
+    <!--计数器-->
+    <block>
+      <text class="swiper-number" hidden="{{!commodity.showImg.length}}">{{numIndex}} / {{numSize}}</text>
+    </block>
+  </view>
+
+  <!--轮播图end-->
+
+  <!--基本信息start-->
+  <view class="block clearFix">
+    <view class="commodity-name">这里是商品名字这里是商品名字这里是商品名字这里</view>
+    <view class="price_count">
+      <text class="lf">
+        <text class="commodity-price" wx:if="true">¥ 666.66</text>
+        <text class="old-price" wx:if="true">¥ 666.66</text>
+      </text>
+      <text class="rt">
+        <text>销量：</text>
+        <text>555</text>
+      </text>
+      <view class="clear"></view>
+    </view>
+  </view>
+
+  <!--基本信息end-->
+
+  <!--选项卡start-->
+  <view class="swiper-tab clearFix">
+    <view class="swiper-tab-list" bindtap="tabClick">图文详情</view>
+  </view>
+  <view class="detail">
+    <template is="wxParse" data="{{wxParseData:detail.nodes}}" />
+  </view>
+</view>

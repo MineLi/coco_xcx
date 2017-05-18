@@ -1,0 +1,50 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="top-content">
+    <swiper class="swiper_box" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
+      <block wx:for="{{images}}" wx:key="item">
+        <swiper-item>
+          <image src="{{item.picurl}}" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="middle-content">
+    <!--<view class="mid-title">
+      <text>分国家与地区查看品牌</text>
+    </view>-->
+    <view class="classify-group">
+      <view class="classify-item" wx:for="{{countryList}}" wx:for-item="itemName" wx:key="index" data-name="{{itemName.country}}" bindtap="goToList">
+        <image data-name="{{itemName.country}}" src="{{itemName.imgsrc}}"></image>
+        <text data-name="{{itemName.country}}" class="country-text">{{itemName.country}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="hot_commodities">
+    <text> 热销商品，精选推荐</text>
+  </view>
+  <block>
+    <view class="commodity-content" wx:for="{{commodityList}}" wx:key="item" bindtap="" data-barCode="">
+      <view class="commodity-big-img">
+        <block wx:if="{{item.img}}">
+          <image class="commodity-img" src="{{ossUrl + item.img + M_W_500}}"></image>
+        </block>
+        <block wx:else>
+          <image class="commodity-img" src="/resources/images/defaultComm.png"></image>
+        </block>
+      </view>
+      <view class="commodity-fullname">商品名商品名</view>
+      <view class="price_count">
+        <text class="lf">
+          <text class="commodity-price" wx:if="true">¥ 666.66</text>
+          <text class="old-price" wx:if="true">¥ 666.66</text>
+        </text>
+        <text class="rt">
+          <text>销量：</text>
+          <text>555</text>
+        </text>
+        <view class="clear"></view>
+      </view>
+    </view>
+  </block>
+</view>
