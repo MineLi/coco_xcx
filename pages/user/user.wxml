@@ -13,7 +13,7 @@
   </view>
   <view class="about">
     <view class="myOrders">
-      <view class="order-title">
+      <view class="order-title" bindtap="toOrder">
         <text class="lf">我的订单</text>
         <image src="/resources/icons/more.png" class="rt"></image>
         <view class="clear"></view>

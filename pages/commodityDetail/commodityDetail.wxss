@@ -128,7 +128,7 @@
 
 .block {
   margin-bottom: 16rpx;
-  padding: 16rpx 30rpx;
+  padding: 10rpx 30rpx;
   background-color: #fff;
 }
 
@@ -167,13 +167,15 @@
   text-align: center;
 }
 
-
-
 /*商品名*/
 
 .commodity-name {
-  font-size: 16pt;
-  padding-bottom: 4rpx;
+  font-size: 14pt;
+  padding: 20rpx;
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
 }
 
 .commodity-price {
@@ -190,15 +192,35 @@
 
 .price_count {
   font-size: 30rpx;
-  padding: 20rpx 0;
+  padding: 10rpx 0;
 }
 
+.detail{
+  padding-bottom: 124rpx;
+}
+.detail-image{
+  width: 100%;
+}
 
-
-.back {
+/*.back {
   position: fixed;
   bottom: 5%;
   right: 5%;
   width: 80rpx;
   height: 80rpx;
+}*/
+
+.btn-content {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 16rpx 0;
+  background-color: rgb(245,245,245);
+}
+
+.confirm {
+  width: 92%;
+  margin: 0 auto;
+  background-color: rgb(231, 66, 64);
+  color: #fff;
 }

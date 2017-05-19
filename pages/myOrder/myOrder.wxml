@@ -1,15 +1,17 @@
 <!--pages/commodity/commodity.wxml-->
 <view class="container">
   <view class="country-title">
-    <text class="{{countryName==itm?'hasSel':''}}" wx:for="{{countryList}}" wx:for-item="itm" wx:for-index="idx" bindtap="classifybrandlist" data-i="{{itm}}" wx:key="idx">{{itm}}</text>
+    <text class="{{countryName==itm?'hasSel':''}}" wx:for="{{countryList}}" wx:for-item="itm" wx:for-index="idx" data-i="{{itm}}" wx:key="idx">{{itm}}</text>
   </view>
-  <block>
-    <view class="orders">
-      <view class="order-content" wx:for="{{orderList}}" wx:key="item" >
-        <view class="order-state">
-          
-        </view>
-        <view class="order-big-img">
+  <view class="orders">
+    <view class="order-content" wx:for="{{orderList}}" wx:key="item">
+      <view class="order-state">
+        <text class="lf">2017-05-18 07:22</text>
+        <text class="rt">已完成</text>
+        <view class="clear"></view>
+      </view>
+      <view>
+        <view class="order-big-img lf">
           <block wx:if="{{item.img}}">
             <image class="order-img" src="{{ossUrl + item.img + M_W_500}}"></image>
           </block>
@@ -17,19 +19,21 @@
             <image class="order-img" src="/resources/images/defaultComm.png"></image>
           </block>
         </view>
-        <view class="commodity-fullname">商品名商品名</view>
-        <view class="price_count">
+        <view class=" rt order-detail">
+          <view class="name">商品名字在这里</view>
           <text class="lf">
             <text class="commodity-price" wx:if="true">¥ 666.66</text>
             <text class="old-price" wx:if="true">¥ 666.66</text>
           </text>
           <text class="rt">
-            <text>销量：</text>
-            <text>555</text>
+            <text>x1</text>
           </text>
-          <view class="clear"></view>
         </view>
+        <view class="clear"></view>
       </view>
+
+
+
     </view>
-  </block>
+  </view>
 </view>

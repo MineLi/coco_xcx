@@ -16,20 +16,20 @@
         </swiper-item>
       </block>
       <block hidden="{{commodity.showImg}}">
-        <image class="slide-image" src="/resources/images/defaultComm.png"></image>
+        <image class="slide-image" src="/resources/images/webwxgetmsgimg.jpg"></image>
       </block>
     </swiper>
     <!--计数器-->
     <block>
       <text class="swiper-number" hidden="{{!commodity.showImg.length}}">{{numIndex}} / {{numSize}}</text>
     </block>
+    <view class="commodity-name">这里是商品名字这里是商品名字这里是商品名字这里</view>
   </view>
 
   <!--轮播图end-->
 
   <!--基本信息start-->
   <view class="block clearFix">
-    <view class="commodity-name">这里是商品名字这里是商品名字这里是商品名字这里</view>
     <view class="price_count">
       <text class="lf">
         <text class="commodity-price" wx:if="true">¥ 666.66</text>
@@ -50,6 +50,14 @@
     <view class="swiper-tab-list" bindtap="tabClick">图文详情</view>
   </view>
   <view class="detail">
+    <image class="detail-image" src="/resources/images/webwxgetmsgimg.jpg"></image>
+    <image class="detail-image" src="/resources/images/webwxgetmsgimg.jpg"></image>
+    <image class="detail-image" src="/resources/images/webwxgetmsgimg.jpg"></image>
+    <image class="detail-image" src="/resources/images/webwxgetmsgimg.jpg"></image>
+    <image class="detail-image" src="/resources/images/webwxgetmsgimg.jpg"></image>
     <template is="wxParse" data="{{wxParseData:detail.nodes}}" />
+  </view>
+  <view class="btn-content">
+    <button class="confirm">立即购买</button>
   </view>
 </view>

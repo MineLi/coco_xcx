@@ -3,7 +3,7 @@ Page({
   data: {
     countryList: ["全部", "待付款", "已付款", "已完成"],
     countryName: "全部",
-    commodityList: []
+    orderList: [1,1,1]
   },
 
   goToCommodityDtail: function (e) {

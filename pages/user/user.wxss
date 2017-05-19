@@ -45,8 +45,8 @@
 }
 
 .about>view {
-  height: 88rpx;
-  line-height: 88rpx;
+  height: 100rpx;
+  line-height: 100rpx;
   background-color: #fff;
   font-size: 32rpx;
 }
@@ -55,12 +55,12 @@
   width: 32rpx;
   height: 32rpx;
   position: relative;
-  top: 26rpx;
+  top: 33rpx;
   right: 20rpx;
 }
 
 .about .myOrders {
-  height: 270rpx;
+  height: 282rpx;
 }
 
 .order-title, .myInfo, .aboutUs, .contactUs, .order-content, .myOrders {
