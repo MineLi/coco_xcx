@@ -26,7 +26,6 @@
   text-align: center;
   padding-top: 40rpx;
   background: linear-gradient(to right, rgb(245, 94, 99), rgb(244, 75, 70));
-  margin-bottom: 16rpx;
 }
 
 .portrait {
