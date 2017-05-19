@@ -11,7 +11,39 @@
       <view class="nickname">{{userInfo.nickname?userInfo.nickname:'某某某'}}</view>
     </view>
   </view>
-  <view class="">
-    
+  <view class="about">
+    <view class="myOrders">
+      <view class="order-title">
+        <text class="lf">我的订单</text>
+        <image src="/resources/icons/more.png" class="rt"></image>
+        <view class="clear"></view>
+      </view>
+      <view class="order-content">
+        <view>
+          <image src="/resources/icons/nopay.png"></image>
+          <text>待付款</text>
+        </view>
+        <view>
+          <image src="/resources/icons/paid.png"></image>
+          <text>已付款</text>
+        </view>
+        <view>
+          <image src="/resources/icons/done.png"></image>
+          <text>已完成</text>
+        </view>
+      </view>
+    </view>
+    <view class="myInfo">
+      <text class="lf">我的资料</text>
+      <image src="/resources/icons/more.png" class="rt"></image>
+    </view>
+    <view class="aboutUs">
+      <text class="lf">关于店铺</text>
+      <image src="/resources/icons/more.png" class="rt"></image>
+    </view>
+    <view class="contactUs">
+      <text class="lf">联系我们</text>
+      <image src="/resources/icons/more.png" class="rt"></image>
+    </view>
   </view>
 </view>

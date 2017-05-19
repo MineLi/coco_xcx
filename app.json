@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/user/user",
     "pages/index/index",
     "pages/commodity/commodity",
-    "pages/commodityDetail/commodityDetail",
-    "pages/user/user"
+    "pages/commodityDetail/commodityDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
