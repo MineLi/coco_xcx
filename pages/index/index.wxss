@@ -185,3 +185,9 @@ swiper-item image {
   padding: 20rpx 0;
   border-bottom: 0.5px solid #f2f2f2;
 }
+
+.contact{
+  position: fixed;
+  right: 11px;
+  bottom: 7px;
+}
