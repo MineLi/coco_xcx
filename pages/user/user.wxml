@@ -2,34 +2,34 @@
 <view class="container">
   <view class="header">
     <view class="user">
-      <block wx:if="{{userInfo.portrait}}">
-        <image class="portrait" src="{{ossUrl + userInfo.portrait + M_100}}"></image>
+      <block wx:if="{{userInfo.avatarUrl}}">
+        <image class="portrait" src="{{userInfo.avatarUrl}}"></image>
       </block>
       <block wx:else>
         <image class="portrait" src="/resources/images/defaultUser.png"></image>
       </block>
-      <view class="nickname">{{userInfo.nickname?userInfo.nickname:'某某某'}}</view>
+      <view class="nickname">{{userInfo.nickName?userInfo.nickName:'游客'}}</view>
     </view>
   </view>
   <view class="about">
     <view class="myOrders">
-      <view class="order-title" bindtap="toOrder">
-        <text class="lf">我的订单</text>
-        <image src="/resources/icons/more.png" class="rt"></image>
+      <view class="order-title" bindtap="toOrder" data-name="我的订单">
+        <text class="lf" data-name="我的订单">我的订单</text>
+        <image src="/resources/icons/more.png" class="rt" data-name="我的订单"></image>
         <view class="clear"></view>
       </view>
       <view class="order-content">
-        <view>
-          <image src="/resources/icons/nopay.png"></image>
-          <text>待付款</text>
+        <view bindtap="toOrder" data-name="待付款">
+          <image src="/resources/icons/nopay.png" data-name="待付款"></image>
+          <text data-name="待付款">待付款</text>
         </view>
-        <view>
-          <image src="/resources/icons/paid.png"></image>
-          <text>已付款</text>
+        <view bindtap="toOrder" data-name="已付款">
+          <image src="/resources/icons/paid.png" data-name="已付款"></image>
+          <text data-name="已付款">已付款</text>
         </view>
-        <view>
-          <image src="/resources/icons/done.png"></image>
-          <text>已完成</text>
+        <view bindtap="toOrder" data-name="已完成">
+          <image src="/resources/icons/done.png" data-name="已完成"></image>
+          <text data-name="已完成">已完成</text>
         </view>
       </view>
     </view>

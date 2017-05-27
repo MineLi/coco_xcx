@@ -11,9 +11,9 @@
 }
 
 .country-title text {
-  font-size: 28rpx;
+  font-size: 30rpx;
   color: #373737;
-  padding: 18rpx 19rpx;
+  padding: 18rpx 64rpx;
 }
 
 .hasSel {

@@ -42,6 +42,7 @@ Page({
     //     that.getCommodity(option.barCode)
     //   }
     // )
+
   },
   onShow: function () {
     // 每次页面重新显示时，当前页面用户为空时，并且全局存在用户时

@@ -1,7 +1,7 @@
 <!--pages/commodity/commodity.wxml-->
 <view class="container">
   <view class="country-title">
-    <text class="{{countryName==itm?'hasSel':''}}" wx:for="{{countryList}}" wx:for-item="itm" wx:for-index="idx" data-i="{{itm}}" wx:key="idx">{{itm}}</text>
+    <text bindtap="classifyOrders" class="{{orderStyleName==itm?'hasSel':''}}" wx:for="{{orderListName}}" wx:for-item="itm" wx:for-index="idx" data-i="{{itm}}" wx:key="idx">{{itm}}</text>
   </view>
   <view class="orders">
     <view class="order-content" wx:for="{{orderList}}" wx:key="item">

@@ -1,30 +1,46 @@
 // pages/commodity/commodity.js
 Page({
   data: {
-    countryList: ["全部", "中国", "日本", "欧洲", "美国", "澳洲", "韩国", "其他"],
-    countryName: "全部",
+    countryList: ["美甲", "美瞳", "纹绣", "美容"],
+    countryName: "美甲",
     commodityList: [11, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
   },
 
   goToCommodityDtail: function (e) {
     // var barCode = e.currentTarget.dataset.barcode
     // if (barCode) {
-      wx.navigateTo({
-        url: '/pages/commodityDetail/commodityDetail'
-      })
+    wx.navigateTo({
+      url: '/pages/commodityDetail/commodityDetail'
+    })
     // }
   },
-
-
-
   onLoad: function (options) {
-    // 页面初始化 options为页面跳转所带来的参数
+    // this.data.countryName = \
+    console.log('onLoad')
+    var that = this
+    // 拿到缓存的选择项
+    wx.getStorage({
+      key: 'select',
+      success: function (res) {
+        // that.data.countryName = res
+        that.setData({
+          countryName: res.data
+        })
+      }
+    })
+  },
+  classifybrandlist: function (e) {
+    var itm = e.target.dataset.i;
+    this.setData({
+      countryName: itm
+    })
   },
   onReady: function () {
     // 页面渲染完成
+    console.log('onReady')
   },
   onShow: function () {
-    // 页面显示
+
   },
   onHide: function () {
     // 页面隐藏

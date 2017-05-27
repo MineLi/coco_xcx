@@ -95,7 +95,7 @@ swiper-item image {
   width: 156rpx;
   height: 156rpx;
   /*padding: 38rpx 62rpx;*/
-  margin-left: 28rpx;
+  margin-left: 26rpx;
   margin-top: 28rpx;
   line-height: 156rpx;
 }
@@ -153,7 +153,10 @@ swiper-item image {
   top: 8rpx;
   width: 350rpx;
   height: 32rpx;
+  line-height: 32rpx;
   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .commodity-price {
@@ -186,7 +189,7 @@ swiper-item image {
   border-bottom: 0.5px solid #f2f2f2;
 }
 
-.contact{
+.contact {
   position: fixed;
   right: 11px;
   bottom: 7px;
