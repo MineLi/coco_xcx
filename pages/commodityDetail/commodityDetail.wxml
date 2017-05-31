@@ -4,26 +4,21 @@
 <view class="container">
   <view style="position: relative">
     <swiper class="swiper-image" circular="{{circular}}" bindchange="imageSlide">
-      <block wx:if="{{commodity.video}}">
+      <!--wx:for="{{commodityDetail[0].p_picurl}}"-->
+      <block hidden="{{!commodityDetail[0].p_picurl}}" wx:key="img">
         <swiper-item>
-          <image class="poster1" src="{{ossUrl + commodity.showImg[0] + M_W_500}}" bindtap="playVideo"></image>
-          <image class="poster2" src="/resources/play.png" bindtap="playVideo"></image>
+          <image src="{{commodityDetail[0].p_picurl}}" class="slide-image" mode="aspectFill" data-imgUrl="{{commodityDetail[0].p_picurl}}" />
         </swiper-item>
       </block>
-      <block hidden="{{!commodity.showImg.length}}" wx:for="{{commodity.showImg}}" wx:key="img">
-        <swiper-item>
-          <image src="{{ossUrl + item + M_W_500}}" class="slide-image" mode="aspectFill" bindtap="enlarge" data-imgUrl="{{ossUrl + item + M_W_500}}" />
-        </swiper-item>
-      </block>
-      <block hidden="{{commodity.showImg}}">
-        <image class="slide-image" src="/resources/images/webwxgetmsgimg.jpg"></image>
+      <block hidden="{{commodityDetail[0].p_picurl}}">
+        <image class="slide-image" src="/resources/images/defaultComm.png"></image>
       </block>
     </swiper>
     <!--计数器-->
     <block>
-      <text class="swiper-number" hidden="{{!commodity.showImg.length}}">{{numIndex}} / {{numSize}}</text>
+      <!--<text class="swiper-number" hidden="{{!commodity.showImg.length}}">{{numIndex}} / {{numSize}}</text>-->
     </block>
-    <view class="commodity-name">这里是商品名字这里是商品名字这里是商品名字这里</view>
+    <view class="commodity-name">{{commodityDetail[0].p_title}}</view>
   </view>
 
   <!--轮播图end-->
@@ -32,12 +27,12 @@
   <view class="block clearFix">
     <view class="price_count">
       <text class="lf">
-        <text class="commodity-price" wx:if="true">¥ 666.66</text>
-        <text class="old-price" wx:if="true">¥ 666.66</text>
+        <text class="commodity-price" wx:if="true">¥ {{commodityDetail[0].zk_price}}</text>
+        <text class="old-price" wx:if="true">¥ {{commodityDetail[0].price}}</text>
       </text>
       <text class="rt">
         <text>销量：</text>
-        <text>555</text>
+        <text>{{commodityDetail[0].sale_num}}</text>
       </text>
       <view class="clear"></view>
     </view>
@@ -47,15 +42,10 @@
 
   <!--选项卡start-->
   <view class="swiper-tab clearFix">
-    <view class="swiper-tab-list" bindtap="tabClick">图文详情</view>
+    <view class="swiper-tab-list">图文详情</view>
   </view>
   <view class="detail">
-    <image class="detail-image" src="/resources/images/webwxgetmsgimg.jpg"></image>
-    <image class="detail-image" src="/resources/images/webwxgetmsgimg.jpg"></image>
-    <image class="detail-image" src="/resources/images/webwxgetmsgimg.jpg"></image>
-    <image class="detail-image" src="/resources/images/webwxgetmsgimg.jpg"></image>
-    <image class="detail-image" src="/resources/images/webwxgetmsgimg.jpg"></image>
-    <template is="wxParse" data="{{wxParseData:detail.nodes}}" />
+    <template is="wxParse" data="{{wxParseData:desc.nodes}}" />
   </view>
   <view class="btn-content">
     <button class="confirm">立即购买</button>

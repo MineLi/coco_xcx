@@ -1,16 +1,18 @@
 // pages/commodity/commodity.js
+var app = getApp();
 Page({
   data: {
-    countryList: ["美甲", "美瞳", "纹绣", "美容"],
-    countryName: "美甲",
-    commodityList: [11, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    cateList: ["美甲", "美瞳", "纹绣", "美容"],
+    cateName: "美甲",
+    pageNum: 1,
+    commodityList: []
   },
 
   goToCommodityDtail: function (e) {
-    // var barCode = e.currentTarget.dataset.barcode
+    var id = e.currentTarget.dataset.commodityId
     // if (barCode) {
     wx.navigateTo({
-      url: '/pages/commodityDetail/commodityDetail'
+      url: '/pages/commodityDetail/commodityDetail?id=' + id
     })
     // }
   },
@@ -22,18 +24,40 @@ Page({
     wx.getStorage({
       key: 'select',
       success: function (res) {
-        // that.data.countryName = res
         that.setData({
           countryName: res.data
         })
       }
     })
+    //初始化数据
+    this.getCommodities(this.data.pageNum, this.data.cateName)
   },
-  classifybrandlist: function (e) {
+  classifycatelist: function (e) {
+    console.log(e)
     var itm = e.target.dataset.i;
     this.setData({
-      countryName: itm
+      cateName: itm
     })
+    this.getCommodities(this.data.pageNum, this.data.cateName)
+  },
+
+  getCommodities: function (pageNum, cate) {
+    var that = this;
+    app.getRequest(
+      'https://xcx001.69yt.com/index.php/item/index/getItemInfoByCate',
+      {
+        pageNum: pageNum,
+        pageSize: 1000,
+        p_cate: cate
+      },
+      function (res) {
+        that.data.commodityList = that.data.commodityList.concat(res);
+        that.setData({
+          commodityList: that.data.commodityList,
+        })
+        console.log(that.data.commodityList);
+      }
+    )
   },
   onReady: function () {
     // 页面渲染完成

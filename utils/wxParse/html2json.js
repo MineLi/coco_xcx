@@ -123,7 +123,7 @@ function html2json(html, bindName) {
             //对img添加额外数据
             if (node.tag === 'img') {
                 node.imgIndex = results.images.length;
-                var imgUrl = node.attr.src + "@!M_W_500";
+                var imgUrl = node.attr.src;
                 imgUrl = wxDiscode.urlToHttpUrl(imgUrl, __placeImgeUrlHttps);
                 node.attr.src = imgUrl;
                 node.from = bindName;

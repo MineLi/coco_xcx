@@ -11,24 +11,16 @@ Page({
     circular: true,// 是否采用衔接滑动
     numIndex: 1,// 轮播图当前页码
     numSize: 0,// 轮播图总条数
-    // 选项卡初始参数
-    currentTab: 0,// 当前选项卡下标
-    // 关注事件与icon
-    followTap: 'addFollow',
-    followImg: 'follow-b',
-    poster: false,// 显示隐藏视频封面
-    enlargeImg: false, //点击图片放大
+    commodityDetail: []
   },
   onLoad: function (option) {
     var that = this
+
+
+
     that.setData({
-      winHeight: app.globalData.winHeight,
-      ossUrl: getApp().globalData.ossUrl,
-      M_100: app.globalData.M_100,
-      M_W_500: app.globalData.M_W_500,
       userInfo: app.globalData.userInfo,
-      barCode: option.barCode,
-      from: option.from
+      commodityId: option.id
     })
     // 获取商品数据
     // that.getCommodity(option.barCode)
@@ -42,6 +34,8 @@ Page({
     //     that.getCommodity(option.barCode)
     //   }
     // )
+    this.getCommodityDetail()
+
 
   },
   onShow: function () {
@@ -66,11 +60,36 @@ Page({
   },
   // 分享事件处理函数
   onShareAppMessage: function () {
-    var commodity = this.data.commodity
-    return {
-      title: commodity.commodityName,
-      path: '/pages/commodity/commodity?barCode=' + commodity.barCode
-    }
+  },
+  getCommodityDetail: function () {
+    var that = this;
+    app.getRequest(
+      'https://xcx001.69yt.com/index.php/item/index/getItemInfoById',
+      {
+        pid: this.data.commodityId
+      },
+      function (res) {
+        that.setData({
+          commodityDetail: res,
+          desc: that.unescapeHTML(decodeURIComponent(res[0].p_desc))
+        })
+        // console.log(that.data.commodityDetail);
+        // console.log(decodeURIComponent(that.data.commodityDetail[0].p_desc));
+        // console.log(that.unescapeHTML(decodeURIComponent(res[0].p_desc)))
+        WxParse.wxParse('desc', 'html', that.data.desc, that, 0);
+      }
+    )
+  },
+  unescapeHTML: function (a) {
+    a = "" + a;
+    return a.replace(/&lt;/g, "<")
+      .replace(/&gt;/g, ">")
+      .replace(/&amp;/g, "&")
+      .replace(/&quot;/g, '"')
+      .replace(/&apos;/g, "'")
+      .replace(/\+/g, " ")
+      .replace(/\\/g, "");
+
   },
   // getCommodity: function (barCode) {
   //   console.log(barCode);
@@ -121,30 +140,4 @@ Page({
   //   )
   // },
 
-
-
-
-  // image滑动切换tab
-  imageSlide: function (e) {
-    var that = this
-    that.setData({ numIndex: e.detail.current + 1 })
-    // 停止视频
-    this.videoContext.pause()
-  },
-  // box滑动切换tab
-  // boxSlide: function (e) {
-  //   var that = this
-  //   that.setData({ currentTab: e.detail.current })
-  // },
-  // 点击tab切换
-  tabClick: function (e) {
-    var that = this
-    if (that.data.currentTab === e.target.dataset.current) {
-      return false
-    } else {
-      that.setData({
-        currentTab: e.target.dataset.current
-      })
-    }
-  }
 })

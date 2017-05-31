@@ -1,11 +1,11 @@
 <!--pages/commodity/commodity.wxml-->
 <view class="container">
   <view class="country-title">
-    <text class="{{countryName==itm?'hasSel':''}}" wx:for="{{countryList}}" wx:for-item="itm" wx:for-index="idx" bindtap="classifybrandlist" data-i="{{itm}}" wx:key="idx">{{itm}}</text>
+    <text class="{{cateName==itm?'hasSel':''}}" wx:for="{{cateList}}" wx:for-item="itm" wx:for-index="idx" bindtap="classifycatelist" data-i="{{itm}}" wx:key="idx">{{itm}}</text>
   </view>
   <block>
     <view class="commodities">
-      <view class="commodity-content" wx:for="{{commodityList}}" wx:key="item" bindtap="goToCommodityDtail" data-barCode="">
+      <view class="commodity-content" wx:for="{{commodityList}}" wx:key="item" bindtap="goToCommodityDtail" data-commodityId="{{item.p_id}}">
         <view class="commodity-big-img">
           <block wx:if="{{item.img}}">
             <image class="commodity-img" src="{{ossUrl + item.img + M_W_500}}"></image>

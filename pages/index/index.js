@@ -47,10 +47,8 @@ Page({
             var code = res.code;
             wx.getUserInfo({//getUserInfo流程
               success: function (res2) {//获取userinfo成功
-                console.log(res2);
                 var encryptedData = encodeURIComponent(res2.encryptedData);//一定要把加密串转成URI编码
                 app.globalData.userInfo = res2.userInfo
-                console.log(app.globalData.userInfo);
                 var iv = res2.iv;
                 //请求自己的服务器
                 // Login(code, encryptedData, iv);
@@ -104,6 +102,7 @@ Page({
       }
     )
   },
+
   // //页面滑动到底部
   // bindDownLoad: function () {
   //   var that = this;
@@ -137,9 +136,10 @@ Page({
       }
     })
   },
-  gotoDetail: function () {
+  gotoDetail: function (e) {
+    var id = e.currentTarget.dataset.commodityid
     wx.navigateTo({
-      url: '/pages/commodityDetail/commodityDetail'
+      url: '/pages/commodityDetail/commodityDetail?id=' + id
     })
   }
 })
