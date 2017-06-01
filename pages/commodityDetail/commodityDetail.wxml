@@ -48,6 +48,6 @@
     <template is="wxParse" data="{{wxParseData:desc.nodes}}" />
   </view>
   <view class="btn-content">
-    <button class="confirm">立即购买</button>
+    <button class="confirm" catchtap="confirm">立即购买</button>
   </view>
 </view>

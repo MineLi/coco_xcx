@@ -1,54 +1,55 @@
 <!--index.wxml-->
-<view class="container" catchtouchstart="" catchtouchmove="" catchtouchend="">
-  <view class="top-content">
-    <swiper class="swiper_box" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
-      <block wx:for="{{images}}" wx:key="item">
-        <swiper-item>
-          <image src="{{item.picurl}}" class="slide-image" />
-        </swiper-item>
-      </block>
-    </swiper>
-  </view>
-  <view class="middle-content">
-    <!--<view class="mid-title">
+<view class="container">
+  <scroll-view scroll-y style="height:{{winHeight}}px" bindscrolltolower="getCommodityInfo">
+
+    <view class="top-content">
+      <swiper class="swiper_box" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
+        <block wx:for="{{images}}" wx:key="item">
+          <swiper-item>
+            <image src="{{item.picurl}}" class="slide-image" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class="middle-content">
+      <!--<view class="mid-title">
       <text>分国家与地区查看品牌</text>
     </view>-->
-    <view class="classify-group">
-      <view class="classify-item" wx:for="{{countryList}}" wx:for-item="itemName" wx:key="index" data-name="{{itemName.country}}" bindtap="goToList">
-        <image data-name="{{itemName.country}}" src="{{itemName.imgsrc}}"></image>
-        <text data-name="{{itemName.country}}" class="country-text">{{itemName.country}}</text>
+      <view class="classify-group">
+        <view class="classify-item" wx:for="{{countryList}}" wx:for-item="itemName" wx:key="index" data-name="{{itemName.country}}" bindtap="goToList">
+          <image data-name="{{itemName.country}}" src="{{itemName.imgsrc}}"></image>
+          <text data-name="{{itemName.country}}" class="country-text">{{itemName.country}}</text>
+        </view>
       </view>
     </view>
-  </view>
-  <view class="hot_commodities">
-    <text> 热销商品，精选推荐</text>
-  </view>
+    <view class="hot_commodities">
+      <text> 热销商品，精选推荐</text>
+    </view>
+    <view class="commodity-content" wx:for="{{commodityList}}" wx:key="item" catchtap="gotoDetail" data-commodityId="{{item.p_id}}">
+      <view class="commodity-big-img">
+        <block wx:if="{{item.p_picurl }}">
+          <image class="commodity-img" src="{{item.p_picurl}}"></image>
+        </block>
+        <block wx:else>
+          <image class="commodity-img" src="/resources/images/defaultComm.png"></image>
+        </block>
+      </view>
+      <view class="commodity-fullname">{{item.p_title}}</view>
+      <view class="price_count">
+        <text class="lf">
+          <text class="commodity-price" wx:if="true">¥ {{item.zk_price}}</text>
+          <text class="old-price" wx:if="true">¥ {{item.zk_price}}</text>
+        </text>
+        <text class="rt">
+          <text>销量：</text>
+          <text>{{item.sale_num}}</text>
+        </text>
+        <view class="clear"></view>
+      </view>
+    </view>
 
-  <view class="commodity-content" wx:for="{{commodityList}}" wx:key="item" catchtap="gotoDetail" data-commodityId="{{item.p_id}}">
-    <view class="commodity-big-img">
-      <block wx:if="{{item.p_picurl }}">
-        <image class="commodity-img" src="{{item.p_picurl}}"></image>
-      </block>
-      <block wx:else>
-        <image class="commodity-img" src="/resources/images/defaultComm.png"></image>
-      </block>
-    </view>
-    <view class="commodity-fullname">{{item.p_title}}</view>
-    <view class="price_count">
-      <text class="lf">
-        <text class="commodity-price" wx:if="true">¥ {{item.zk_price}}</text>
-        <text class="old-price" wx:if="true">¥ {{item.zk_price}}</text>
-      </text>
-      <text class="rt">
-        <text>销量：</text>
-        <text>{{item.sale_num}}</text>
-      </text>
-      <view class="clear"></view>
-    </view>
-  </view>
-  <loading hidden="{{hidden}}" bindchange="loadingChange">
-    加载中...
-  </loading>
-  <contact-button type="default-dark" size="20" session-from="weapp" class="contact">
-  </contact-button>
+    <contact-button type="default-dark" size="20" session-from="weapp" class="contact">
+    </contact-button>
+  </scroll-view>
+
 </view>

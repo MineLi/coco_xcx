@@ -8,7 +8,6 @@ Page({
     autoplay: false,
     interval: 3000,
     duration: 1000,
-    scrollX: true,
     countryList: [
       {
         imgsrc: "/resources/images/country_all.jpg",
@@ -28,9 +27,6 @@ Page({
       }
     ],
     commodityList: [],
-    hidden: true,
-    scrollTop: 0,
-    scrollHeight: 0,
     pageNum: 1,
     canLoad: true
   },
@@ -52,6 +48,8 @@ Page({
                 var iv = res2.iv;
                 //请求自己的服务器
                 // Login(code, encryptedData, iv);
+
+                console.log(iv)
               }
             })
 
@@ -61,6 +59,10 @@ Page({
         }
       })
     }
+    //设置屏幕宽
+    that.setData({
+      winHeight: app.globalData.winHeight
+    })
     //sliderList
     app.getRequest(
       'http://huanqiuxiaozhen.com/wemall/slider/list',
@@ -72,35 +74,36 @@ Page({
         })
       }
     )
-    // //获取高度设置给scroll_view
-    // wx.getSystemInfo({
-    //   success: function (res) {
-    //     that.setData({
-    //       scrollHeight: res.windowHeight
-    //     });
-    //   }
-    // });
     // 获取第一页商品数据
-    this.getCommodityInfo(1);
+    this.getCommodityInfo();
   },
-  getCommodityInfo: function (pageNum) {
+  getCommodityInfo: function () {
     var that = this;
-    app.getRequest(
-      'https://xcx001.69yt.com/index.php/item/index/getalliteminfo',
-      {
-        pageNum: pageNum,
-        pageSize: 1000
-      },
-      function (res) {
-        that.data.commodityList = that.data.commodityList.concat(res);
-        that.setData({
-          commodityList: that.data.commodityList,
-          pageNum: that.data.pageNum++,
-          canLoad: true
-        })
-        console.log(that.data.commodityList);
-      }
-    )
+    if (that.data.canLoad) {
+      that.setData({
+        canLoad: false
+      })
+      app.getRequest(
+        'https://xcx001.69yt.com/index.php/item/index/getalliteminfo',
+        {
+          pageNum: that.data.pageNum,
+          pageSize: 10
+        },
+        function (res) {
+          console.log(res);
+          if (res.length !== 0) {
+            var commodityList = that.data.commodityList.concat(res);
+            that.setData({
+              commodityList: commodityList,
+              pageNum: that.data.pageNum + 1,
+              canLoad: true
+            })
+          }
+          console.log(that.data.commodityList);
+        }
+      )
+    }
+
   },
 
   // //页面滑动到底部

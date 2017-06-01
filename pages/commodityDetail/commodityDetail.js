@@ -91,53 +91,10 @@ Page({
       .replace(/\\/g, "");
 
   },
-  // getCommodity: function (barCode) {
-  //   console.log(barCode);
-  //   var that = this;
-  //   var userInfo = that.data.userInfo;
-  //   var openId = wx.getStorageSync("openId");
-  //   app.getRequest(
-  //     'weChat/getCommodityInfoForWeChat',
-  //     {
-  //       barCode: barCode,
-  //       userId: userInfo && userInfo.id || "",
-  //       openId: openId
-  //     },
-  //     function (result) {
-  //       //最近浏览 
-  //       console.log(result);
-  //       var resentObj = {};
-  //       if (result.status === '0') {
-  //         var commodity = result.msg
-  //         console.log(result);
-  //         // 计数器的数字显示
-
-  //         var numSize = commodity.showImg.length;
-  //         var visitId = result.msg.visitId;
-  //         that.setData({
-  //           visitId: visitId
-  //         })
-  //         // 关注状态初始化
-  //         that.setData({
-  //           commodity: commodity,
-  //           numSize: numSize > 0 && numSize,
-  //           followTap: followStatus ? 'unFollow' : 'addFollow',
-  //           followImg: followStatus ? 'follow-f' : 'follow-b',
-  //           // brandCategoryId:result.msg.brandCategoryId
-  //         })
-  //         // 图文详情渲染
-  //         var detail = commodity.detail || "";
-  //         WxParse.wxParse('detail', 'html', detail, that);
-
-  //       } else {
-  //         wx.showToast({
-  //           title: '没有请求到数据',
-  //           icon: 'success',
-  //           duration: 2000
-  //         })
-  //       }
-  //     }
-  //   )
-  // },
-
+  //确认生成订单
+  confirm: function () {
+    wx.navigateTo({
+      url: "/pages/orderConfirm/orderConfirm"
+    })
+  }
 })

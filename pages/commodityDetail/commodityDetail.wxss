@@ -1,7 +1,7 @@
 /**
  * 轮播图
  */
-
+/*@import '/utils/kindeditor.css';*/
 .clear {
   clear: both;
 }
