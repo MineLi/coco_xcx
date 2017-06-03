@@ -73,9 +73,6 @@ Page({
           commodityDetail: res,
           desc: that.unescapeHTML(decodeURIComponent(res[0].p_desc))
         })
-        // console.log(that.data.commodityDetail);
-        // console.log(decodeURIComponent(that.data.commodityDetail[0].p_desc));
-        // console.log(that.unescapeHTML(decodeURIComponent(res[0].p_desc)))
         WxParse.wxParse('desc', 'html', that.data.desc, that, 0);
       }
     )
@@ -91,10 +88,11 @@ Page({
       .replace(/\\/g, "");
 
   },
-  //确认生成订单
+  //确认跳往订单确认页
   confirm: function () {
+    var that = this;
     wx.navigateTo({
-      url: "/pages/orderConfirm/orderConfirm"
+      url: "/pages/orderConfirm/orderConfirm?commodityId=" + that.data.commodityId
     })
   }
 })

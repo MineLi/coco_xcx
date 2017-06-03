@@ -35,7 +35,9 @@ Page({
     //console.log(e.detail.current)
   },
   onLoad: function () {
-    var that = this
+    var that = this;
+    var serect = 'c4d2c765ce2bdf473351c10aeaa1777a';
+    var appid = 'wx6ef434841cd84798';
     if (!app.globalData.userInfo) {
       wx.login({//login流程
         success: function (res) {//登录成功
@@ -55,6 +57,27 @@ Page({
 
           } else {
             console.log('获取用户登录态失败！' + res.errMsg)
+          }
+        }
+      })
+      wx.login({
+        success: function (res) {
+          var that = this;
+          //获取openid
+          if (res.code) {
+            app.getRequest(
+              'https://api.weixin.qq.com/sns/jscode2session?appid=' + appid + '&secret=' + serect + '&grant_type=authorization_code&js_code=' + res.code,
+              {
+              },
+              function (res) {
+                console.log(res);
+                // wx.setStorage({
+                //   key: 'openid',
+                //   data: res.openid
+                // });
+                //  放入全局
+                app.globalData.openid = res.openid
+              })
           }
         }
       })
